@@ -1,0 +1,14 @@
+@import '~bootstrap/scss/bootstrap';
+
+#app {
+  margin-top: 40px;
+}
+
+#citiesList {
+  margin-top: 40px;
+  .dropdown {
+    .dropdown-menu {
+      width: 100%;
+    }
+  }
+}
