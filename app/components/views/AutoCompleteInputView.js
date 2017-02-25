@@ -29,16 +29,14 @@ export default Marionette.View.extend({
 
   },
   fetchData: function() {
-    var self = this;
-
     //delay input
     Utils.sleep(500).then(() => {
       var query = this.ui.autocomplete.val();
 
       if (query && query !== '') {
         this.suggestions.search(query)
-          .done(function(data) {
-            self.renderDropdown();
+          .done((data) => {
+            this.renderDropdown();
           });
       } else {
         this.suggestions.reset();
@@ -47,13 +45,11 @@ export default Marionette.View.extend({
     });
   },
   renderDropdown: function() {
-    var self = this;
-
     this.getRegion('dropdownMenu').show(new DropdownMenuView({
       collection: this.suggestions,
-      onItemSelected: function(item) {
-        console.log('City / Selection :: ', self.model.get('name'), ' / ', item.get('name'));
-        self.ui.autocomplete.val(item.get('name'));
+      onItemSelected: (item) => {
+        console.log('City / Selection :: ', this.model.get('name'), ' / ', item.get('name'));
+        this.ui.autocomplete.val(item.get('name'));
       }
     }));
   }
