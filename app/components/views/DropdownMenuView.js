@@ -18,13 +18,11 @@ export default Marionette.CollectionView.extend({
     );
   },
   onRender: function() {
-    /*
     if (this.collection.length > 0) {
       this.$el.show();
     } else {
       this.$el.hide();
     }
-    */
   },
   onItemSelected: function(item) {
     if (_.isFunction(this.options.onItemSelected)) {
