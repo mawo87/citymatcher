@@ -5,6 +5,7 @@ A city matcher built with Backbone, Marionette 3 and Webpack.
 ## Getting started
 
 * Install:
+    * Clone repository and switch to root folder.
     * Inside this folder run: `npm install`
 * Run:
     * `npm start` — starts project
