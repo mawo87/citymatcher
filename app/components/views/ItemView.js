@@ -58,6 +58,8 @@ export default Marionette.View.extend({
 
     //render pagination
     this.getRegion('paginator').show(this.paginatedView);
+
+    this.$('#testBtn').tooltip();
   },
   onShowPage(data) {
     if (data && data.page && !isNaN(parseInt(data.page))) {
