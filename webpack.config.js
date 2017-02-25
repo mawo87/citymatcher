@@ -7,9 +7,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 
 const webpackCommon = {
-  entry: {
-    app: ['./app/initialize']
-  },
+  entry: ['./app/initialize'],
   module: {
     loaders: [
       {
@@ -19,6 +17,10 @@ const webpackCommon = {
         query: {
           presets: ['es2015']
         }
+      },
+      {
+        test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/,
+        loader: 'imports-loader?jQuery=jquery'
       },
       {
         test: /\.jst$/,
