@@ -1,6 +1,6 @@
 # City Matcher
 
-A city matcher built with Backbone, MarionetteJS and Webpack.
+A city matcher built with Backbone, Marionette 3 and Webpack.
 
 ## Getting started
 
