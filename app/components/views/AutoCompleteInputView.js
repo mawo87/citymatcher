@@ -1,6 +1,7 @@
 import Marionette from 'backbone.marionette';
 import CitiesCollection from '../collections/cities';
 import DropdownMenuView from '../views/DropdownMenuView.js';
+import Utils from '../Utils.js';
 import template from '../../templates/autocompleteInput.jst';
 
 export default Marionette.View.extend({
@@ -29,17 +30,21 @@ export default Marionette.View.extend({
   },
   fetchData: function() {
     var self = this;
-    var query = this.ui.autocomplete.val();
 
-    if (query && query !== '') {
-      this.suggestions.search(query)
-        .done(function(data) {
-          self.renderDropdown();
-        });
-    } else {
-      this.suggestions.reset();
-      this.renderDropdown();
-    }
+    //delay input
+    Utils.sleep(500).then(() => {
+      var query = this.ui.autocomplete.val();
+
+      if (query && query !== '') {
+        this.suggestions.search(query)
+          .done(function(data) {
+            self.renderDropdown();
+          });
+      } else {
+        this.suggestions.reset();
+        this.renderDropdown();
+      }
+    });
   },
   renderDropdown: function() {
     var self = this;
